@@ -99,7 +99,7 @@ const ClimateResearchAssistant = () => {
 
   // URL Ingestion Handler
   const handleIngestUrls = async () => {
-    const validUrls = urls.filter(url => url.trim());
+    const validUrls = urls.filter(url => url.trim()).map(url => url.trim().replace(/["\\]/g, ''));
     
     if (validUrls.length === 0) {
       toast({
@@ -114,6 +114,7 @@ const ClimateResearchAssistant = () => {
     setIngestResult('');
 
     try {
+      console.log('Sending URLs:', validUrls);
       const response = await axios.post(`${API_BASE_URL}/ingest`, {
         urls: validUrls
       });
