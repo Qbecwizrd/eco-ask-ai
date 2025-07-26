@@ -124,6 +124,9 @@ const ClimateResearchAssistant = () => {
         description: "URLs ingested successfully"
       });
     } catch (error: any) {
+      console.error('Ingest error:', error);
+      console.error('Error response:', error.response);
+      console.error('Error message:', error.message);
       const errorMessage = error.response?.data?.detail || error.message || 'Failed to ingest URLs';
       setIngestResult(`Error: ${errorMessage}`);
       toast({
