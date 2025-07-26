@@ -8,7 +8,7 @@ import { Loader2, Send, Globe, FileText, Plus, X, Clock } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 
 // Configure your FastAPI backend URL
-const API_BASE_URL = 'http://localhost:8000'; // Adjust this to your backend URL
+const API_BASE_URL = 'https://weather-cimate-agent.onrender.com';
 
 interface QuestionHistory {
   id: string;
@@ -398,7 +398,7 @@ const ClimateResearchAssistant = () => {
 
         {/* Footer Note */}
         <div className="text-center text-sm text-muted-foreground animate-fade-in">
-          <p>Make sure your FastAPI backend is running on <code className="bg-muted px-2 py-1 rounded">localhost:8000</code></p>
+          <p>Connected to FastAPI backend at <code className="bg-muted px-2 py-1 rounded">weather-cimate-agent.onrender.com</code></p>
         </div>
       </div>
     </div>
