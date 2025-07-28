@@ -52,14 +52,14 @@ const ClimateResearchAssistant = () => {
         query: question
       });
 
-      const answer = response.data;
-      setCurrentAnswer(answer);
+      const answerObj = response.data;
+      setCurrentAnswer(answerObj.answer); // Only store the answer string
 
       // Add to history
       const newEntry: QuestionHistory = {
         id: Date.now().toString(),
         question,
-        answer,
+        answer: answerObj.answer, // Only store the answer string in history
         timestamp: new Date()
       };
       setQuestionHistory(prev => [newEntry, ...prev]);
